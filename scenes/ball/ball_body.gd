@@ -22,7 +22,6 @@ func get_rot(delta: float) -> float:
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("mouse_click"):
 		clicked = true
-		print("clicked")
 
 
 func _unhandled_input(_event: InputEvent) -> void:
