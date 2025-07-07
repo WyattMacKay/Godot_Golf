@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://3rtryxl8wdfe"]
+
+[ext_resource type="Texture2D" uid="uid://bi1iajv4qfdeb" path="res://assets/tilesheets/wall.png" id="1_qhv8c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vrh0o"]
+bounce = 0.75
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pe2x"]
+texture = ExtResource("1_qhv8c")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, -32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, 32, -32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_jo682"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_vrh0o")
+sources/0 = SubResource("TileSetAtlasSource_6pe2x")
+
+[node name="WallTiles" type="TileMapLayer"]
+tile_set = SubResource("TileSet_jo682")
