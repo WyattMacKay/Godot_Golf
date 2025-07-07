@@ -11,13 +11,18 @@ func _process(_delta: float) -> void:
 		update_line()
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
+	if linear_velocity == Vector2.ZERO:
+		input_pickable = true
+	apply_tile_friction(delta)
+	%BallNode.rotate(get_rot(delta))
+
+
+func apply_tile_friction(delta: float) -> void:
 	var tile_pos := tilemap.local_to_map(global_position)
 	var tile_data := tilemap.get_cell_tile_data(tile_pos)
 	var friction: float = tile_data.get_custom_data("Friction")
-
-	linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta * 100)	#apply friction
-	%BallNode.rotate(get_rot(delta))
+	linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta * 100)
 
 
 func update_line() -> void:
@@ -73,6 +78,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			fire(difference)
 		line.free()
 		line = null
+		input_pickable = false
 
 
 func fire(difference: Vector2):
