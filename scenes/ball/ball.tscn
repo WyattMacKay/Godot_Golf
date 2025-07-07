@@ -4,25 +4,26 @@
 [ext_resource type="Script" uid="uid://dm3r3m1pqkr8k" path="res://scenes/ball/ball_body.gd" id="2_stoaj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xotqv"]
+friction = 0.0
 bounce = 0.75
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbgth"]
 radius = 33.0
 
-[node name="Ball" type="Node2D"]
-
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -4)
-texture = ExtResource("1_nv6q1")
-
-[node name="BallBody" type="RigidBody2D" parent="."]
+[node name="Ball" type="RigidBody2D"]
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_xotqv")
 gravity_scale = 0.0
 script = ExtResource("2_stoaj")
 
-[node name="CircleCollision" type="CollisionShape2D" parent="BallBody"]
+[node name="CircleCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_jbgth")
 
-[connection signal="input_event" from="BallBody" to="BallBody" method="_on_input_event"]
+[node name="BallNode" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="BallNode"]
+position = Vector2(0, -4)
+texture = ExtResource("1_nv6q1")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
