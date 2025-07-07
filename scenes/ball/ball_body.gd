@@ -29,15 +29,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("mouse_click") and clicked:
 		clicked = false
 		var difference: Vector2 = self.global_position - get_viewport().get_mouse_position()
-		if difference.length() <= %CircleCollision.shape.radius:
-			print("cancelled")
-		else:
+		if difference.length() > %CircleCollision.shape.radius:
 			fire(difference)
-			print("released")
-	
-	if Input.is_key_pressed(KEY_E):
-		print(tilemap)
 
 
 func fire(difference: Vector2):
-	apply_impulse(difference)
+	apply_impulse(difference * 3)
