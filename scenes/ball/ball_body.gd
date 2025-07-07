@@ -20,14 +20,25 @@ func _physics_process(delta):
 	%BallNode.rotate(get_rot(delta))
 
 
-func update_line():
+func update_line() -> void:
 	line.remove_point(1)
-	line.add_point(get_viewport().get_mouse_position())
+	line.add_point(line.get_point_position(0) - get_mouse_distance())
 	var difference := get_mouse_distance()
 	var red_value := 1-difference.length()/MAX_DIFF
-	red_value = max(0, red_value)
-	print(red_value)
 	line.default_color = Color(1, red_value, red_value, 1.0)
+	vibrate(difference)
+
+
+func vibrate(difference: Vector2) -> void:
+	const MIN_VIBE := MAX_DIFF/2.0
+	var vibe_radius := difference.length() / MIN_VIBE
+	if(vibe_radius < 1): 
+		line.position = Vector2.ZERO
+		return
+	var angle = randf() * 2 * PI
+	var radius = randf() * vibe_radius
+	var offset = Vector2(cos(angle), sin(angle)) * radius
+	line.position = offset
 
 
 func get_rot(delta: float) -> float:
@@ -48,7 +59,10 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func get_mouse_distance() -> Vector2:
-	return self.global_position - get_viewport().get_mouse_position()
+	var distance = self.global_position - get_viewport().get_mouse_position()
+	if distance.length() < MAX_DIFF:
+		return distance
+	return distance.normalized() * MAX_DIFF
 
 
 func _unhandled_input(_event: InputEvent) -> void:

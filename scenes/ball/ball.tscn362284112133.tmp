@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gsq12xtv5rmq"]
+[gd_scene load_steps=8 format=3 uid="uid://gsq12xtv5rmq"]
 
 [ext_resource type="Texture2D" uid="uid://0oywxw0ujssd" path="res://scenes/ball/golfball.png" id="1_nv6q1"]
 [ext_resource type="Script" uid="uid://dm3r3m1pqkr8k" path="res://scenes/ball/ball_body.gd" id="2_stoaj"]
@@ -8,6 +8,10 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xotqv"]
 friction = 0.0
 absorbent = true
+
+[sub_resource type="Curve" id="Curve_xotqv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), -0.137768, -0.137768, 0, 0, Vector2(0.712766, 0.370787), 1.32023, 1.32023, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbgth"]
 radius = 25.0
@@ -31,8 +35,7 @@ texture = ExtResource("3_xotqv")
 script = ExtResource("4_jbgth")
 
 [node name="Line2D" type="Line2D" parent="BallNode"]
-round_precision = 30
-antialiased = true
+width_curve = SubResource("Curve_xotqv")
 
 [node name="CircleCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
