@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://bu1mnm3jym6pm"]
+[gd_scene load_steps=3 format=3 uid="uid://bu1mnm3jym6pm"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://gsq12xtv5rmq" path="res://scenes/ball/ball.tscn" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://cb51wo2qbkgre" path="res://icon.svg" id="1_o5qli"]
+
+[node name="World" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(585, 275)
+scale = Vector2(6.82611, 6.82611)
+texture = ExtResource("1_o5qli")
+
+[node name="Ball" parent="." instance=ExtResource("1_0wfyh")]
+position = Vector2(48, 284)
