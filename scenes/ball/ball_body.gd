@@ -3,6 +3,14 @@ extends RigidBody2D
 @onready var tilemap: TileMapLayer = self.get_parent().get_child(0)
 @onready var clicked = false
 
+const MAX_DIFF = 250
+var line: Line2D = null
+
+func _process(_delta: float) -> void:
+	if clicked:
+		update_line()
+
+
 func _physics_process(delta):
 	var tile_pos := tilemap.local_to_map(global_position)
 	var tile_data := tilemap.get_cell_tile_data(tile_pos)
@@ -10,6 +18,16 @@ func _physics_process(delta):
 
 	linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta * 100)	#apply friction
 	%BallNode.rotate(get_rot(delta))
+
+
+func update_line():
+	line.remove_point(1)
+	line.add_point(get_viewport().get_mouse_position())
+	var difference := get_mouse_distance()
+	var red_value := 1-difference.length()/MAX_DIFF
+	red_value = max(0, red_value)
+	print(red_value)
+	line.default_color = Color(1, red_value, red_value, 1.0)
 
 
 func get_rot(delta: float) -> float:
@@ -22,14 +40,25 @@ func get_rot(delta: float) -> float:
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("mouse_click"):
 		clicked = true
+		line = Line2D.new()
+		self.get_parent().add_child(line)
+		line.add_point(self.global_position)
+		line.add_point(Vector2.ZERO)
+		line.antialiased = true
+
+
+func get_mouse_distance() -> Vector2:
+	return self.global_position - get_viewport().get_mouse_position()
 
 
 func _unhandled_input(_event: InputEvent) -> void:
+	var difference := get_mouse_distance()
 	if Input.is_action_just_released("mouse_click") and clicked:
 		clicked = false
-		var difference: Vector2 = self.global_position - get_viewport().get_mouse_position()
 		if difference.length() > %CircleCollision.shape.radius:
 			fire(difference)
+		line.free()
+		line = null
 
 
 func fire(difference: Vector2):
