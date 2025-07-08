@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5ttg0ts17bq2"]
+
+[ext_resource type="Script" uid="uid://bif4vwbrm5wyk" path="res://scenes/user_interface/label.gd" id="1_syvep"]
+[ext_resource type="Texture2D" uid="uid://c56hf0784y6ej" path="res://scenes/user_interface/RestartWhite.png" id="2_l2bgj"]
+[ext_resource type="Script" uid="uid://b4sauwe33qvdr" path="res://scenes/user_interface/reset.gd" id="3_cj8yd"]
+
+[node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 107.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
+text = "Par: 5
+Shots: 0"
+script = ExtResource("1_syvep")
+
+[node name="Reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1031.0
+offset_right = 1150.0
+offset_bottom = 131.0
+focus_mode = 0
+icon = ExtResource("2_l2bgj")
+flat = true
+script = ExtResource("3_cj8yd")
+
+[connection signal="pressed" from="Reset" to="Reset" method="_on_pressed"]

@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if linear_velocity == Vector2.ZERO:
+	if linear_velocity.length() < 0.05:
 		input_pickable = true
 	apply_tile_friction(delta)
 	%BallNode.rotate(get_rot(delta))
