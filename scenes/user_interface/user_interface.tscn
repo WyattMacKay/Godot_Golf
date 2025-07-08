@@ -4,11 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://c56hf0784y6ej" path="res://scenes/user_interface/RestartWhite.png" id="2_l2bgj"]
 [ext_resource type="Script" uid="uid://b4sauwe33qvdr" path="res://scenes/user_interface/reset.gd" id="3_cj8yd"]
 
-[node name="UserInterface" type="Control"]
+[node name="UserInterface" type="CanvasLayer"]
+
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 14.0
@@ -22,7 +24,7 @@ text = "Par: 5
 Shots: 0"
 script = ExtResource("1_syvep")
 
-[node name="Reset" type="Button" parent="."]
+[node name="Reset" type="Button" parent="UI"]
 layout_mode = 0
 offset_left = 1031.0
 offset_right = 1150.0
@@ -32,4 +34,4 @@ icon = ExtResource("2_l2bgj")
 flat = true
 script = ExtResource("3_cj8yd")
 
-[connection signal="pressed" from="Reset" to="Reset" method="_on_pressed"]
+[connection signal="pressed" from="UI/Reset" to="UI/Reset" method="_on_pressed"]

@@ -3,7 +3,8 @@ extends RigidBody2D
 @onready var tilemap: TileMapLayer = self.get_parent().get_child(0)
 @export var max_power := 250
 var line: Line2D = null
-var clicked = false
+var clicked := false
+var delay_finished := true
 signal fired
 
 func _ready() -> void:
@@ -16,8 +17,6 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if linear_velocity.length() < 0.05:
-		input_pickable = true
 	apply_tile_effect(delta)
 	%BallNode.rotate(get_rot(delta))
 
@@ -34,13 +33,14 @@ func apply_tile_effect(delta: float) -> void:
 func apply_friction(friction: float, delta: float) -> void:
 	linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta * 100)
 
+
 func apply_water_effect() -> void:
 	Global.reset_ball()
 
 
 func update_line() -> void:
 	line.remove_point(1)
-	line.add_point(line.get_point_position(0) - get_mouse_distance())
+	line.add_point(self.position - get_mouse_distance())
 	var difference := get_mouse_distance()
 	var red_value := 1-difference.length()/max_power
 	line.default_color = Color(1, red_value, red_value, 1.0)
@@ -77,7 +77,9 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func get_mouse_distance() -> Vector2:
-	var distance = self.global_position - get_viewport().get_mouse_position()
+	#var distance := self.position - get_viewport().get_mouse_position()
+	#var distance := self.position - get_global_mouse_position()
+	var distance := -get_local_mouse_position()
 	if distance.length() < max_power:
 		return distance
 	return distance.normalized() * max_power
@@ -95,5 +97,14 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func fire(difference: Vector2):
-	apply_impulse(difference * 3)
+	apply_impulse(difference * 3)	#Consider something like difference * difference.length() / 20
 	fired.emit()
+
+
+func _on_fire_delay_timeout() -> void:
+	delay_finished = true
+
+
+func _on_sleeping_state_changed() -> void:
+	if sleeping:
+		input_pickable = true
