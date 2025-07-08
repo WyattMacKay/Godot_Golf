@@ -1,10 +1,14 @@
 extends RigidBody2D
 
 @onready var tilemap: TileMapLayer = self.get_parent().get_child(0)
-@onready var clicked = false
-
-const MAX_DIFF = 250
+@export var max_power := 250
 var line: Line2D = null
+var clicked = false
+signal fired
+
+func _ready() -> void:
+	Global.set_ball(self)
+
 
 func _process(_delta: float) -> void:
 	if clicked:
@@ -29,14 +33,14 @@ func update_line() -> void:
 	line.remove_point(1)
 	line.add_point(line.get_point_position(0) - get_mouse_distance())
 	var difference := get_mouse_distance()
-	var red_value := 1-difference.length()/MAX_DIFF
+	var red_value := 1-difference.length()/max_power
 	line.default_color = Color(1, red_value, red_value, 1.0)
 	vibrate(difference)
 
 
 func vibrate(difference: Vector2) -> void:
-	const MIN_VIBE := MAX_DIFF/2.0
-	var vibe_radius := difference.length() / MIN_VIBE
+	var min_vibe := max_power/2.0
+	var vibe_radius := difference.length() / min_vibe
 	if(vibe_radius < 1): 
 		line.position = Vector2.ZERO
 		return
@@ -65,9 +69,9 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 func get_mouse_distance() -> Vector2:
 	var distance = self.global_position - get_viewport().get_mouse_position()
-	if distance.length() < MAX_DIFF:
+	if distance.length() < max_power:
 		return distance
-	return distance.normalized() * MAX_DIFF
+	return distance.normalized() * max_power
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -83,3 +87,4 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func fire(difference: Vector2):
 	apply_impulse(difference * 3)
+	fired.emit()
