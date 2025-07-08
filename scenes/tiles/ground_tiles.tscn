@@ -10,11 +10,15 @@ texture_region_size = Vector2i(64, 64)
 1:0/0/custom_data_0 = 0.4
 0:0/0 = 0
 0:0/0/custom_data_0 = 0.25
+0:1/0 = 0
+0:1/0/custom_data_1 = true
 
 [sub_resource type="TileSet" id="TileSet_dv36s"]
 tile_size = Vector2i(64, 64)
-custom_data_layer_0/name = "Friction"
+custom_data_layer_0/name = "friction"
 custom_data_layer_0/type = 3
+custom_data_layer_1/name = "is_water"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_0xem2")
 
 [node name="GroundTiles" type="TileMapLayer"]

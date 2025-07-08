@@ -19,5 +19,6 @@ position = Vector2(978, 323)
 
 [node name="Ball" parent="." instance=ExtResource("1_0wfyh")]
 position = Vector2(153, 284)
+max_power = null
 
 [node name="UserInterface" parent="." instance=ExtResource("3_tbgi4")]
