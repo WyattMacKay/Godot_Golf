@@ -18,15 +18,24 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if linear_velocity.length() < 0.05:
 		input_pickable = true
-	apply_tile_friction(delta)
+	apply_tile_effect(delta)
 	%BallNode.rotate(get_rot(delta))
 
 
-func apply_tile_friction(delta: float) -> void:
+func apply_tile_effect(delta: float) -> void:
 	var tile_pos := tilemap.local_to_map(global_position)
 	var tile_data := tilemap.get_cell_tile_data(tile_pos)
-	var friction: float = tile_data.get_custom_data("Friction")
+	if tile_data.get_custom_data("is_water"):
+		apply_water_effect()
+	var friction: float = tile_data.get_custom_data("friction")
+	apply_friction(friction, delta)
+
+
+func apply_friction(friction: float, delta: float) -> void:
 	linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta * 100)
+
+func apply_water_effect() -> void:
+	Global.reset_ball()
 
 
 func update_line() -> void:
