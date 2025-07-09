@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var tilemap: TileMapLayer = self.get_parent().get_child(0)
+@export var ground_tiles: TileMapLayer
 @export var max_power := 250
 var line: Line2D = null
 var clicked := false
@@ -22,8 +22,8 @@ func _physics_process(delta: float) -> void:
 
 
 func apply_tile_effect(delta: float) -> void:
-	var tile_pos := tilemap.local_to_map(global_position)
-	var tile_data := tilemap.get_cell_tile_data(tile_pos)
+	var tile_pos := ground_tiles.local_to_map(global_position)
+	var tile_data := ground_tiles.get_cell_tile_data(tile_pos)
 	if tile_data.get_custom_data("is_water"):
 		apply_water_effect()
 	var friction: float = tile_data.get_custom_data("friction")
@@ -77,8 +77,6 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func get_mouse_distance() -> Vector2:
-	#var distance := self.position - get_viewport().get_mouse_position()
-	#var distance := self.position - get_global_mouse_position()
 	var distance := -get_local_mouse_position()
 	if distance.length() < max_power:
 		return distance

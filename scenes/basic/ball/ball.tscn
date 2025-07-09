@@ -35,6 +35,10 @@ shape = SubResource("CircleShape2D_jbgth")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.05
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

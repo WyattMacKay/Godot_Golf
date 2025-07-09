@@ -7,11 +7,12 @@
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yc1am"]
-radius = 20.0
+radius = 15.0
 
 [node name="PortalHole" type="Node2D" node_paths=PackedStringArray("own_sprite", "timer")]
 process_mode = 1
 script = ExtResource("1_1ayn1")
+exit_speed = 200
 own_sprite = NodePath("Sprite2D")
 timer = NodePath("Timer")
 

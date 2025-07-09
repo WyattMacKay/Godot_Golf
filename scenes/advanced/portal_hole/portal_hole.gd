@@ -15,8 +15,6 @@ func _ready() -> void:
 
 func ball_sank() -> void:
 	if ball:
-		#var temp_vect = connected_hole.position
-		#var direction = (temp_vect - Vector2(temp_vect.x, temp_vect.y + 1)).normalized()
 		ball.linear_velocity = Vector2.UP.rotated(connected_hole.rotation) * exit_speed
 		ball.global_position = connected_hole.global_position
 		connected_hole.ball_exited()

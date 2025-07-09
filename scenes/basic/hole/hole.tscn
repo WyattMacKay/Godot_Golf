@@ -13,6 +13,7 @@ radius = 15.0
 script = ExtResource("1_n61ei")
 timer = NodePath("Timer")
 outer_pull = 500
+min_velocity = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vevmo")
