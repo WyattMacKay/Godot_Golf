@@ -47,7 +47,7 @@ func update_line() -> void:
 
 
 func vibrate(difference: Vector2) -> void:
-	var min_vibe := max_power/2.0
+	var min_vibe := max_power*0.75
 	var vibe_radius := difference.length() / min_vibe
 	if(vibe_radius < 1): 
 		line.position = Vector2.ZERO
@@ -78,7 +78,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		line = null
 
 
-func fire(difference: Vector2):
+func fire(difference: Vector2) -> void:
 	input_pickable = false
 	var modifier := 1.0
 	if get_current_tile().get_custom_data("friction") > 0.5:
