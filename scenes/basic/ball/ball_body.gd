@@ -22,8 +22,7 @@ func _physics_process(delta: float) -> void:
 
 
 func apply_tile_effect(delta: float) -> void:
-	var tile_pos := ground_tiles.local_to_map(global_position)
-	var tile_data := ground_tiles.get_cell_tile_data(tile_pos)
+	var tile_data := get_current_tile()
 	if tile_data.get_custom_data("is_water"):
 		apply_water_effect()
 	var friction: float = tile_data.get_custom_data("friction")
@@ -59,12 +58,6 @@ func vibrate(difference: Vector2) -> void:
 	line.position = offset
 
 
-func get_rot(delta: float) -> float:
-	if(linear_velocity.x == 0): return 0
-	var r = $CircleCollision.shape.radius
-	var rot = (linear_velocity.x / r) * delta
-	return rot * 2
-
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("mouse_click"):
@@ -74,13 +67,6 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		line.add_point(self.global_position)
 		line.add_point(Vector2.ZERO)
 		line.antialiased = true
-
-
-func get_mouse_distance() -> Vector2:
-	var distance := -get_local_mouse_position()
-	if distance.length() < max_power:
-		return distance
-	return distance.normalized() * max_power
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -95,7 +81,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func fire(difference: Vector2):
-	apply_impulse(difference * 3)	#Consider something like difference * difference.length() / 20
+	var modifier := 1.0
+	if get_current_tile().get_custom_data("friction") > 0.5:
+		modifier = 0.5
+	apply_impulse(difference * difference.length() / 50 * modifier)
 	fired.emit()
 
 
@@ -106,3 +95,23 @@ func _on_fire_delay_timeout() -> void:
 func _on_sleeping_state_changed() -> void:
 	if sleeping:
 		input_pickable = true
+
+
+func get_rot(delta: float) -> float:
+	if(linear_velocity.x == 0): return 0
+	var r = $CircleCollision.shape.radius
+	var rot = (linear_velocity.x / r) * delta
+	return rot * 2
+
+
+func get_mouse_distance() -> Vector2:
+	var distance := -get_local_mouse_position()
+	if distance.length() < max_power:
+		return distance
+	return distance.normalized() * max_power
+
+
+func get_current_tile() -> TileData:
+	var tile_pos := ground_tiles.local_to_map(global_position)
+	var tile_data := ground_tiles.get_cell_tile_data(tile_pos)
+	return tile_data
