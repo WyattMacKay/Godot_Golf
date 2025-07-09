@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlfog6qe6mrxq"]
+
+[ext_resource type="Texture2D" uid="uid://dvqtsg1ni8fqe" path="res://assets/tilesheets/ground.png" id="1_c1i6j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xem2"]
+resource_name = "Grass"
+texture = ExtResource("1_c1i6j")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+1:0/0/custom_data_0 = 1.0
+0:0/0 = 0
+0:0/0/custom_data_0 = 0.25
+0:1/0 = 0
+0:1/0/custom_data_1 = true
+
+[sub_resource type="TileSet" id="TileSet_dv36s"]
+tile_size = Vector2i(64, 64)
+custom_data_layer_0/name = "friction"
+custom_data_layer_0/type = 3
+custom_data_layer_1/name = "is_water"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_0xem2")
+
+[node name="GroundTiles" type="TileMapLayer"]
+tile_set = SubResource("TileSet_dv36s")

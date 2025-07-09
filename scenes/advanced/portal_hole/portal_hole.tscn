@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqx7lijf020u"]
+
+[ext_resource type="Script" uid="uid://5g856447ieif" path="res://scenes/advanced/portal_hole/portal_hole.gd" id="1_1ayn1"]
+[ext_resource type="Texture2D" uid="uid://dlvjuc1bkqen4" path="res://scenes/basic/hole/hole.png" id="2_d5f8o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mghj1"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yc1am"]
+radius = 15.0
+
+[node name="PortalHole" type="Node2D" node_paths=PackedStringArray("own_sprite", "timer")]
+process_mode = 1
+script = ExtResource("1_1ayn1")
+exit_speed = 200
+own_sprite = NodePath("Sprite2D")
+timer = NodePath("Timer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d5f8o")
+
+[node name="InnerHole" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerHole"]
+shape = SubResource("CircleShape2D_mghj1")
+
+[node name="OuterHole" type="Area2D" parent="."]
+collision_layer = 0
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OuterHole"]
+shape = SubResource("CircleShape2D_yc1am")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -72)
+gizmo_extents = 20.0
+
+[connection signal="body_entered" from="InnerHole" to="." method="_on_inner_hole_body_entered"]
+[connection signal="body_exited" from="InnerHole" to="." method="_on_inner_hole_body_exited"]
+[connection signal="body_entered" from="OuterHole" to="." method="_on_outer_hole_body_entered"]
+[connection signal="body_exited" from="OuterHole" to="." method="_on_outer_hole_body_exited"]

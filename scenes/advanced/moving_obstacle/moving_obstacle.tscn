@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://csxvk42kqjksd"]
+
+[ext_resource type="Script" uid="uid://cj70ntwjfgmdm" path="res://scenes/advanced/moving_obstacle/moving_obstacle.gd" id="1_h6vde"]
+
+[sub_resource type="Curve2D" id="Curve2D_tsa2i"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 1
+
+[node name="MovingObstacle" type="Path2D" node_paths=PackedStringArray("path_follow")]
+curve = SubResource("Curve2D_tsa2i")
+script = ExtResource("1_h6vde")
+path_follow = NodePath("PathFollow2D")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-0.303223, -0.0547485)
+rotates = false
+
+[node name="Deadzone" type="Marker2D" parent="."]

@@ -19,9 +19,9 @@ func initialize_label() -> void:
 	ball.fired.connect(score_label._on_ball_fired.bind())
 	score_label.set_label()
 
-func reload():
+func reload() -> void:
 	get_tree().reload_current_scene()
 
-func reset_ball():
+func reset_ball() -> void:
 	ball.global_position = ball_start_pos
 	ball.linear_velocity = Vector2.ZERO
