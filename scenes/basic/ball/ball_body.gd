@@ -4,7 +4,6 @@ extends RigidBody2D
 @export var max_power := 250
 var line: Line2D = null
 var clicked := false
-var delay_finished := true
 signal fired
 
 func _ready() -> void:
@@ -79,6 +78,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func fire(difference: Vector2) -> void:
+	$BallNode/Sprite.self_modulate = Color.LAVENDER
 	input_pickable = false
 	var modifier := 1.0
 	if get_current_tile().get_custom_data("friction") > 0.5:
@@ -87,12 +87,9 @@ func fire(difference: Vector2) -> void:
 	fired.emit()
 
 
-func _on_fire_delay_timeout() -> void:
-	delay_finished = true
-
-
 func _on_sleeping_state_changed() -> void:
 	if sleeping:
+		$BallNode/Sprite.self_modulate = Color.WHITE
 		input_pickable = true
 
 
