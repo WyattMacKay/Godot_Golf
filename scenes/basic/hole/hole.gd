@@ -1,10 +1,12 @@
-extends Node2D
+class_name Hole extends Node2D
 
 var ball: RigidBody2D = null
 
+@export_group("Physics")
 @export var outer_pull := 250
 @export var inner_pull := 200
 @export var min_velocity := 10
+@export_group("Timer")
 @export var timer: Timer
 
 var in_inner_pull_range := false
@@ -36,18 +38,22 @@ func ball_sank() -> void:
 
 
 func _on_outer_hole_body_entered(body: Node2D) -> void:
-	ball = body
+	if body is RigidBody2D:
+		ball = body
 
 
-func _on_outer_hole_body_exited(_body: Node2D) -> void:
-	ball = null
-	putt_sank = false
+func _on_outer_hole_body_exited(body: Node2D) -> void:
+	if body == ball:
+		ball = null
+		putt_sank = false
 
 
-func _on_inner_hole_body_entered(_body: Node2D) -> void:
-	in_inner_pull_range = true
+func _on_inner_hole_body_entered(body: Node2D) -> void:
+	if body is RigidBody2D:
+		in_inner_pull_range = true
 
 
 func _on_inner_hole_body_exited(body: Node2D) -> void:
-	in_inner_pull_range = false
-	body.linear_velocity *= 0.5
+	if body is RigidBody2D:
+		in_inner_pull_range = false
+		body.linear_velocity *= 0.5

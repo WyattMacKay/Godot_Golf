@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://bu1mnm3jym6pm"]
+[gd_scene load_steps=9 format=4 uid="uid://bu1mnm3jym6pm"]
 
 [ext_resource type="PackedScene" uid="uid://gsq12xtv5rmq" path="res://scenes/basic/ball/ball.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://3rtryxl8wdfe" path="res://scenes/basic/tiles/wall_tiles.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dlfog6qe6mrxq" path="res://scenes/basic/tiles/ground_tiles.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b5ttg0ts17bq2" path="res://scenes/advanced/user_interface/user_interface.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bv6t0buho6yn" path="res://scenes/basic/hole/hole.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://csxvk42kqjksd" path="res://scenes/advanced/moving_obstacle/obstacle_path.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://csxvk42kqjksd" path="res://scenes/advanced/moving_obstacle/moving_obstacle.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://cqx7lijf020u" path="res://scenes/advanced/portal_hole/portal_hole.tscn" id="7_o6xl0"]
 
-[sub_resource type="Curve2D" id="Curve2D_tefeu"]
+[sub_resource type="Curve2D" id="Curve2D_o6xl0"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, -100, 0, 0, 0, -150, 0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, -150)
@@ -26,16 +27,25 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 position = Vector2(978, 323)
 min_velocity = 25
 
-[node name="Ball" parent="." instance=ExtResource("1_0wfyh")]
-position = Vector2(153, 284)
-
 [node name="UserInterface" parent="." instance=ExtResource("3_tbgi4")]
 
 [node name="Obstacle" parent="." node_paths=PackedStringArray("shape") instance=ExtResource("6_tefeu")]
 position = Vector2(401, 322)
-curve = SubResource("Curve2D_tefeu")
+curve = SubResource("Curve2D_o6xl0")
 shape = NodePath("WallTiles")
 
 [node name="WallTiles" parent="Obstacle" instance=ExtResource("3_jyhfs")]
 position = Vector2(0, -145)
 tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD/////AAAEAAAAAAA=")
+
+[node name="PortalHole" parent="." node_paths=PackedStringArray("connected_hole") instance=ExtResource("7_o6xl0")]
+position = Vector2(217, 526)
+connected_hole = NodePath("../PortalHole2")
+
+[node name="PortalHole2" parent="." node_paths=PackedStringArray("connected_hole") instance=ExtResource("7_o6xl0")]
+position = Vector2(878, 162)
+connected_hole = NodePath("../PortalHole")
+color = Color(0, 0.635294, 1, 1)
+
+[node name="Ball" parent="." instance=ExtResource("1_0wfyh")]
+position = Vector2(153, 284)
