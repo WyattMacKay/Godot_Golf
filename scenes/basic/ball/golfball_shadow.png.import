@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlvjuc1bkqen4"
-path="res://.godot/imported/hole.png-433affaa458974531d1567fbc0492b60.ctex"
+uid="uid://v5agdcxmc45h"
+path="res://.godot/imported/golfball_shadow.png-45aec4758b0320de6a63fecd116e6b35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/hole/hole.png"
-dest_files=["res://.godot/imported/hole.png-433affaa458974531d1567fbc0492b60.ctex"]
+source_file="res://scenes/basic/ball/golfball_shadow.png"
+dest_files=["res://.godot/imported/golfball_shadow.png-45aec4758b0320de6a63fecd116e6b35.ctex"]
 
 [params]
 
