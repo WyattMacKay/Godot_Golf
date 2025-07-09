@@ -58,7 +58,6 @@ func vibrate(difference: Vector2) -> void:
 	line.position = offset
 
 
-
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("mouse_click"):
 		clicked = true
@@ -77,10 +76,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 			fire(difference)
 		line.free()
 		line = null
-		input_pickable = false
 
 
 func fire(difference: Vector2):
+	input_pickable = false
 	var modifier := 1.0
 	if get_current_tile().get_custom_data("friction") > 0.5:
 		modifier = 0.5
