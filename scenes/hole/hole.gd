@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 				ball.apply_force(dir.normalized() * outer_pull)
 
 
-func ball_sank():
+func ball_sank() -> void:
 	print("You did it!")
 	Global.reload()
 
@@ -48,5 +48,6 @@ func _on_inner_hole_body_entered(_body: Node2D) -> void:
 	in_inner_pull_range = true
 
 
-func _on_inner_hole_body_exited(_body: Node2D) -> void:
+func _on_inner_hole_body_exited(body: Node2D) -> void:
 	in_inner_pull_range = false
+	body.linear_velocity *= 0.5

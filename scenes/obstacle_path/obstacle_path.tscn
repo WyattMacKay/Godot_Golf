@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://csxvk42kqjksd"]
+[gd_scene load_steps=3 format=3 uid="uid://csxvk42kqjksd"]
 
 [ext_resource type="Script" uid="uid://cj70ntwjfgmdm" path="res://scenes/obstacle_path/path_follow_2d.gd" id="1_h6vde"]
-[ext_resource type="PackedScene" uid="uid://3rtryxl8wdfe" path="res://scenes/tiles/wall_tiles.tscn" id="1_tsa2i"]
 
 [sub_resource type="Curve2D" id="Curve2D_tsa2i"]
-resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
 }
-point_count = 2
+point_count = 1
 
-[node name="ObstaclePath" type="Path2D"]
+[node name="ObstaclePath" type="Path2D" node_paths=PackedStringArray("path_follow")]
 curve = SubResource("Curve2D_tsa2i")
+script = ExtResource("1_h6vde")
+path_follow = NodePath("PathFollow2D")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-script = ExtResource("1_h6vde")
+position = Vector2(-0.303223, -0.0547485)
+rotates = false
 
-[node name="WallTiles" parent="PathFollow2D" instance=ExtResource("1_tsa2i")]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 4, 0, 0, 0, 0, 0)
+[node name="Deadzone" type="Marker2D" parent="."]

@@ -31,7 +31,7 @@ input_pickable = false
 shape = SubResource("CircleShape2D_yc1am")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.75
 one_shot = true
 
 [connection signal="body_entered" from="InnerHole" to="." method="_on_inner_hole_body_entered"]
