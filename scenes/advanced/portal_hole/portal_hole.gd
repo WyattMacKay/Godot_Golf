@@ -10,7 +10,7 @@ func _ready() -> void:
 	if !connected_hole:
 		push_error("No hole connected to " + self.to_string())
 		get_tree().quit()
-	#own_sprite.modulate = color
+	own_sprite.modulate = color
 	timer.connect("timeout", ball_sank)
 
 func ball_sank() -> void:
