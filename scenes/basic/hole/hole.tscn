@@ -7,12 +7,12 @@
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yc1am"]
-radius = 20.0
+radius = 15.0
 
 [node name="Hole" type="Node2D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_n61ei")
-outer_pull = 500
 timer = NodePath("Timer")
+outer_pull = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vevmo")

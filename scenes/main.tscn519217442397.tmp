@@ -41,14 +41,11 @@ tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD/////AAAEAAAAAAA=")
 [node name="PortalHole" parent="." node_paths=PackedStringArray("connected_hole") instance=ExtResource("7_o6xl0")]
 position = Vector2(217, 526)
 connected_hole = NodePath("../PortalHole2")
-exit_speed = 200
 
 [node name="PortalHole2" parent="." node_paths=PackedStringArray("connected_hole") instance=ExtResource("7_o6xl0")]
 position = Vector2(878, 162)
-rotation = 2.61526
 connected_hole = NodePath("../PortalHole")
 color = Color(0, 0.635294, 1, 1)
-exit_speed = 200
 
 [node name="Ball" parent="." instance=ExtResource("1_0wfyh")]
 position = Vector2(153, 284)

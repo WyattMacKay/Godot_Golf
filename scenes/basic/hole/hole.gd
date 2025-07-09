@@ -1,13 +1,13 @@
 class_name Hole extends Node2D
 
-var ball: RigidBody2D = null
+@export_group("Timer")
+@export var timer: Timer
 
-@export_group("Physics")
+@export_group("Don't Touch!")
 @export var outer_pull := 250
 @export var inner_pull := 200
 @export var min_velocity := 10
-@export_group("Timer")
-@export var timer: Timer
+@export var ball: RigidBody2D = null
 
 var in_inner_pull_range := false
 var putt_sank := false
