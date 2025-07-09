@@ -16,6 +16,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 
 [node name="Hole" parent="." instance=ExtResource("5_tbgi4")]
 position = Vector2(978, 323)
+min_velocity = 25
 
 [node name="Ball" parent="." instance=ExtResource("1_0wfyh")]
 position = Vector2(153, 284)
