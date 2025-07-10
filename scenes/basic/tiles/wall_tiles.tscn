@@ -6,7 +6,7 @@
 bounce = 0.75
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qf0do"]
-bounce = 1.25
+bounce = 100.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pe2x"]
 texture = ExtResource("1_qhv8c")
@@ -22,19 +22,14 @@ texture_region_size = Vector2i(64, 64)
 4:0/0 = 0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -32, 32)
 0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, -32, 32, 32)
 1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(32, 32, -32, 32, 32, -32)
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
 2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
 2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, -32, 32)
 2:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, -32)
 1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, 32, -32)
 1:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, 32, -32)
 
 [sub_resource type="TileSet" id="TileSet_jo682"]
