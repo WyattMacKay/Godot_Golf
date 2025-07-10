@@ -29,7 +29,7 @@ func apply_tile_effect(delta: float) -> void:
 
 
 func apply_friction(friction: float, delta: float) -> void:
-	linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta * 100)
+	linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta * 150)
 
 
 func apply_water_effect() -> void:
@@ -81,8 +81,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 func fire(difference: Vector2) -> void:
 	var modifier := 1.0
 	if get_current_tile().get_custom_data("friction") > 0.5:
-		modifier = 0.5
-	apply_impulse(difference * difference.length() / 50 * modifier)
+		modifier = 0.75
+	apply_impulse(difference * difference.length() / 50 * modifier * 1.5)
 	fired.emit()
 
 
