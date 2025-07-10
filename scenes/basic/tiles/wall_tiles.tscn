@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bi1iajv4qfdeb" path="res://assets/tilesheets/wall.png" id="1_qhv8c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vrh0o"]
-bounce = 0.75
+bounce = 0.5
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qf0do"]
 bounce = 100.0

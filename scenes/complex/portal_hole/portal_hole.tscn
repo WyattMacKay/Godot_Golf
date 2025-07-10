@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqx7lijf020u"]
 
-[ext_resource type="Script" uid="uid://5g856447ieif" path="res://scenes/advanced/portal_hole/portal_hole.gd" id="1_1ayn1"]
+[ext_resource type="Script" uid="uid://5g856447ieif" path="res://scenes/complex/portal_hole/portal_hole.gd" id="1_1ayn1"]
 [ext_resource type="Texture2D" uid="uid://dlvjuc1bkqen4" path="res://scenes/basic/hole/hole.png" id="2_d5f8o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mghj1"]
