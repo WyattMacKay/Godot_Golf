@@ -75,11 +75,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 			fire(difference)
 		line.free()
 		line = null
+		get_viewport().set_input_as_handled()
 
 
 func fire(difference: Vector2) -> void:
-	$BallNode/Sprite.self_modulate = Color.LAVENDER
-	input_pickable = false
 	var modifier := 1.0
 	if get_current_tile().get_custom_data("friction") > 0.5:
 		modifier = 0.5
@@ -91,6 +90,9 @@ func _on_sleeping_state_changed() -> void:
 	if sleeping:
 		$BallNode/Sprite.self_modulate = Color.WHITE
 		input_pickable = true
+	else:
+		$BallNode/Sprite.self_modulate = Color.LAVENDER
+		input_pickable = false
 
 
 func get_rot(delta: float) -> float:
