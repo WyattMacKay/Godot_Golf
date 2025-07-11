@@ -6,7 +6,7 @@
 bounce = 0.5
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qf0do"]
-bounce = 100.0
+bounce = 50.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pe2x"]
 texture = ExtResource("1_qhv8c")
