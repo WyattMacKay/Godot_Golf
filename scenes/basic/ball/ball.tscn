@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://gsq12xtv5rmq"]
 
 [ext_resource type="Texture2D" uid="uid://0oywxw0ujssd" path="res://scenes/basic/ball/golfball.png" id="1_nv6q1"]
-[ext_resource type="Script" uid="uid://dm3r3m1pqkr8k" path="res://scenes/basic/ball/ball_body.gd" id="2_stoaj"]
+[ext_resource type="Script" uid="uid://dm3r3m1pqkr8k" path="res://scenes/basic/ball/ball.gd" id="2_stoaj"]
 [ext_resource type="Texture2D" uid="uid://v5agdcxmc45h" path="res://scenes/basic/ball/golfball_shadow.png" id="3_xotqv"]
 [ext_resource type="Script" uid="uid://df45f5b1ha06a" path="res://scenes/basic/ball/shadow.gd" id="4_jbgth"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xotqv"]
 friction = 0.0
-absorbent = true
+rough = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbgth"]
 radius = 25.0
