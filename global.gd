@@ -11,9 +11,10 @@ func set_label(l: Label) -> void:
 
 func set_ball(b: Node2D) -> void:
 	ball = b
-	ball_start_pos = b.global_position
+	set_ball_position()
 	if score_label:
 		initialize_label()
+	ball.fired.connect(set_ball_position.bind())
 
 func initialize_label() -> void:
 	ball.fired.connect(score_label._on_ball_fired.bind())
@@ -25,3 +26,6 @@ func reload() -> void:
 func reset_ball() -> void:
 	ball.global_position = ball_start_pos
 	ball.linear_velocity = Vector2.ZERO
+
+func set_ball_position() -> void:
+	ball_start_pos = ball.global_position

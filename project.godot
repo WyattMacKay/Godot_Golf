@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Golf"
+config/name="Fuhulatoogan Jittelyang"
 run/main_scene="uid://bu1mnm3jym6pm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://global.gd"
+
+[display]
+
+window/size/viewport_width=1900
+window/size/viewport_height=1000
 
 [input]
 
