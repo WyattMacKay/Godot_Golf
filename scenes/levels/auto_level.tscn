@@ -38,6 +38,7 @@ connected_hole = NodePath("../../Section2/PortalHole")
 position = Vector2(995, -29)
 rotation = 1.5708
 connected_hole = NodePath("../../Section1/PortalHole")
+color = Color(0, 0.635294, 1, 1)
 exit_speed = 635
 
 [node name="PortalHole3" parent="Section2" node_paths=PackedStringArray("connected_hole") instance=ExtResource("3_acpr7")]
@@ -50,6 +51,7 @@ connected_hole = NodePath("../../Section3/PortalHole2")
 position = Vector2(483, 306)
 rotation = -1.5708
 connected_hole = NodePath("../../Section4/PortalHole")
+color = Color(0, 0.635294, 1, 1)
 exit_speed = 3900
 
 [node name="Section4" type="Node2D" parent="."]
