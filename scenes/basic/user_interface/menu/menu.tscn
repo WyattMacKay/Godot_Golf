@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://colkepw4xt1da"]
+
+[ext_resource type="Texture2D" uid="uid://bvpy8qc8winfs" path="res://scenes/basic/user_interface/menu/Menu.png" id="2_1lusc"]
+[ext_resource type="Script" uid="uid://w5tshxdg2fwy" path="res://scenes/basic/user_interface/menu/menu.gd" id="2_l8nhr"]
+[ext_resource type="LabelSettings" uid="uid://oldjufg1yt41" path="res://scenes/basic/user_interface/menu/Label.tres" id="2_xgf7q"]
+[ext_resource type="PackedScene" uid="uid://bwpxvpn0nrnp3" path="res://scenes/basic/user_interface/reset_button/reset.tscn" id="3_53kh8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_27p05"]
+texture = ExtResource("2_1lusc")
+
+[node name="Menu" type="Panel" node_paths=PackedStringArray("label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1400.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 400)
+theme_override_styles/panel = SubResource("StyleBoxTexture_27p05")
+script = ExtResource("2_l8nhr")
+label = NodePath("MenuLabel")
+metadata/_edit_group_ = true
+
+[node name="MenuLabel" type="Label" parent="."]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 99.0
+offset_right = -41.0
+offset_bottom = -257.0
+text = "Good
+Work!"
+label_settings = ExtResource("2_xgf7q")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Reset" parent="." instance=ExtResource("3_53kh8")]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 383.0
+offset_right = 256.0
+offset_bottom = 514.0
+scale = Vector2(2, 2)

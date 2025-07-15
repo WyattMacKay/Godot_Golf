@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://oldjufg1yt41"]
+
+[ext_resource type="FontFile" uid="uid://car0es6fwyja8" path="res://assets/CourierPrime-Bold.ttf" id="1_55hul"]
+
+[resource]
+line_spacing = 20.0
+paragraph_spacing = 20.0
+font = ExtResource("1_55hul")
+font_size = 55
+font_color = Color(1, 0.588235, 0.294118, 1)
+outline_size = 20

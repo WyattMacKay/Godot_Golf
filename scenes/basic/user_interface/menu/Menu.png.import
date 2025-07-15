@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c56hf0784y6ej"
-path="res://.godot/imported/RestartWhite.png-b399ee3a572e19aa9f6c086d0eb3116f.ctex"
+uid="uid://bvpy8qc8winfs"
+path="res://.godot/imported/Menu.png-db414adc1e3144188027ab28cb2b374d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/basic/user_interface/RestartWhite.png"
-dest_files=["res://.godot/imported/RestartWhite.png-b399ee3a572e19aa9f6c086d0eb3116f.ctex"]
+source_file="res://scenes/basic/user_interface/menu/Menu.png"
+dest_files=["res://.godot/imported/Menu.png-db414adc1e3144188027ab28cb2b374d.ctex"]
 
 [params]
 
