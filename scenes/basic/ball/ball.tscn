@@ -21,7 +21,6 @@ script = ExtResource("2_stoaj")
 [node name="BallNode" type="Node2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(0.75, 0.75)
-script = ExtResource("4_76ie0")
 
 [node name="Sprite" type="Sprite2D" parent="BallNode"]
 position = Vector2(0, -4)
@@ -29,6 +28,7 @@ texture = ExtResource("1_nv6q1")
 
 [node name="Shadow" type="Sprite2D" parent="BallNode"]
 texture = ExtResource("3_xotqv")
+script = ExtResource("4_76ie0")
 
 [node name="CircleCollision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
