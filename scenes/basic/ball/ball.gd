@@ -22,6 +22,8 @@ func _physics_process(delta: float) -> void:
 
 func apply_tile_effect(delta: float) -> void:
 	var tile_data := get_current_tile()
+	if !tile_data:
+		return
 	if tile_data.get_custom_data("is_water"):
 		apply_water_effect()
 	var friction: float = tile_data.get_custom_data("friction")
