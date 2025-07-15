@@ -70,7 +70,7 @@ shape = NodePath("WallTiles")
 speed = 0.5
 
 [node name="WallTiles" parent="Section4/MovingObstacle" instance=ExtResource("2_1b8tu")]
-position = Vector2(6.43079, 8.5744)
+position = Vector2(2.38293, 8.21454)
 tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAAAAP//AAAAAAAAAAA=")
 
 [node name="Ball" parent="." node_paths=PackedStringArray("ground_tiles") instance=ExtResource("5_s4jqt")]
