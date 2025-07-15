@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 
 func ball_sank() -> void:
 	print("You did it!")
-	Global.reload()
+	Global.win()
 
 
 func _on_outer_hole_body_entered(body: Node2D) -> void:

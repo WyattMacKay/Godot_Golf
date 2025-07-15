@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwpxvpn0nrnp3"]
+
+[ext_resource type="Texture2D" uid="uid://c56hf0784y6ej" path="res://scenes/basic/user_interface/reset_button/RestartWhite.png" id="1_xj446"]
+[ext_resource type="Script" uid="uid://b4sauwe33qvdr" path="res://scenes/basic/user_interface/reset_button/reset.gd" id="2_4cpms"]
+
+[node name="Reset" type="Button"]
+offset_left = 1776.0
+offset_right = 1895.0
+offset_bottom = 131.0
+focus_mode = 0
+icon = ExtResource("1_xj446")
+flat = true
+script = ExtResource("2_4cpms")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
