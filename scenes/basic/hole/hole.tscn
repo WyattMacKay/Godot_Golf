@@ -12,7 +12,6 @@ radius = 15.0
 [node name="Hole" type="Node2D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_n61ei")
 timer = NodePath("Timer")
-outer_pull = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vevmo")

@@ -4,9 +4,9 @@ class_name Hole extends Node2D
 @export var timer: Timer
 
 @export_group("Don't Touch!")
-@export var outer_pull := 250
+@export var outer_pull := 500
 @export var inner_pull := 200
-@export var min_velocity := 10
+@export var min_velocity := 20
 @export var ball: RigidBody2D = null
 
 var in_inner_pull_range := false
