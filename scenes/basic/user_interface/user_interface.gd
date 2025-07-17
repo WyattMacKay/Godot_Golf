@@ -6,6 +6,7 @@ extends CanvasLayer
 @export var menu: Control
 
 func _ready() -> void:
+	self.visible = true
 	label.par = par
 	Global.set_ui(self)	
 	hide_menu()
