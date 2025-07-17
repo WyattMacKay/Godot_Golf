@@ -4,9 +4,9 @@ class_name Hole extends Node2D
 @export var timer: Timer
 
 @export_group("Don't Touch!")
-@export var outer_pull := 250
+@export var outer_pull := 500
 @export var inner_pull := 200
-@export var min_velocity := 10
+@export var min_velocity := 20
 @export var ball: RigidBody2D = null
 
 var in_inner_pull_range := false
@@ -33,7 +33,6 @@ func _physics_process(delta: float) -> void:
 
 
 func ball_sank() -> void:
-	print("You did it!")
 	Global.win()
 
 
@@ -48,12 +47,14 @@ func _on_outer_hole_body_exited(body: Node2D) -> void:
 		putt_sank = false
 
 
-func _on_inner_hole_body_entered(body: Node2D) -> void:
+func _on_inner_hole_area_entered(area: Area2D) -> void:
+	var body = area.get_parent()
 	if body is RigidBody2D:
 		in_inner_pull_range = true
+		body.linear_velocity *= 0.5
 
 
-func _on_inner_hole_body_exited(body: Node2D) -> void:
+func _on_inner_hole_area_exited(area: Area2D) -> void:
+	var body = area.get_parent()
 	if body is RigidBody2D:
 		in_inner_pull_range = false
-		body.linear_velocity *= 0.5

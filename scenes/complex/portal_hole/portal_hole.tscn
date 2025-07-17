@@ -20,7 +20,8 @@ timer = NodePath("Timer")
 texture = ExtResource("2_d5f8o")
 
 [node name="InnerHole" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InnerHole"]
 shape = SubResource("CircleShape2D_mghj1")
@@ -40,7 +41,7 @@ one_shot = true
 position = Vector2(0, -72)
 gizmo_extents = 20.0
 
-[connection signal="body_entered" from="InnerHole" to="." method="_on_inner_hole_body_entered"]
-[connection signal="body_exited" from="InnerHole" to="." method="_on_inner_hole_body_exited"]
+[connection signal="area_entered" from="InnerHole" to="." method="_on_inner_hole_area_entered"]
+[connection signal="area_exited" from="InnerHole" to="." method="_on_inner_hole_area_exited"]
 [connection signal="body_entered" from="OuterHole" to="." method="_on_outer_hole_body_entered"]
 [connection signal="body_exited" from="OuterHole" to="." method="_on_outer_hole_body_exited"]
