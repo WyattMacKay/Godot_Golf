@@ -42,7 +42,6 @@ position = Vector2(2066, 413)
 rotation = 1.57079
 connected_hole = NodePath("../PortalHole")
 color = Color(0, 0.635294, 1, 1)
-exit_speed = 400
 
 [node name="PortalHole3" parent="." node_paths=PackedStringArray("connected_hole") instance=ExtResource("7_o6xl0")]
 position = Vector2(3249, 409)

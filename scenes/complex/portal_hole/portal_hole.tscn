@@ -15,8 +15,6 @@ script = ExtResource("1_1ayn1")
 exit_speed = 200
 own_sprite = NodePath("Sprite2D")
 timer = NodePath("Timer")
-outer_pull = 500
-min_velocity = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_d5f8o")
