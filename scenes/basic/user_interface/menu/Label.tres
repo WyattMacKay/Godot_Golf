@@ -7,5 +7,5 @@ line_spacing = 20.0
 paragraph_spacing = 20.0
 font = ExtResource("1_55hul")
 font_size = 55
-font_color = Color(1, 0.588235, 0.294118, 1)
+font_color = Color(0, 0, 0, 1)
 outline_size = 20

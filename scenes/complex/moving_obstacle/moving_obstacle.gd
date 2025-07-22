@@ -1,6 +1,6 @@
 extends Path2D
 
-@export var shape: TileMapLayer
+@export var shape: Node2D
 @export var speed := 1.0
 @export_group("Don't Touch")
 @export var path_follow: PathFollow2D

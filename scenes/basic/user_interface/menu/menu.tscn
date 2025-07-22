@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://colkepw4xt1da"]
+[gd_scene load_steps=7 format=3 uid="uid://colkepw4xt1da"]
 
 [ext_resource type="Texture2D" uid="uid://bvpy8qc8winfs" path="res://scenes/basic/user_interface/menu/Menu.png" id="2_1lusc"]
 [ext_resource type="Script" uid="uid://w5tshxdg2fwy" path="res://scenes/basic/user_interface/menu/menu.gd" id="2_l8nhr"]
 [ext_resource type="LabelSettings" uid="uid://oldjufg1yt41" path="res://scenes/basic/user_interface/menu/Label.tres" id="2_xgf7q"]
 [ext_resource type="PackedScene" uid="uid://bwpxvpn0nrnp3" path="res://scenes/basic/user_interface/reset_button/reset.tscn" id="3_53kh8"]
+[ext_resource type="Texture2D" uid="uid://ca2nde01tob7a" path="res://scenes/basic/user_interface/reset_button/RestartBlack.png" id="5_bco1x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_27p05"]
 texture = ExtResource("2_1lusc")
@@ -39,7 +40,8 @@ uppercase = true
 [node name="Reset" parent="." instance=ExtResource("3_53kh8")]
 layout_mode = 0
 offset_left = 137.0
-offset_top = 383.0
+offset_top = 436.0
 offset_right = 256.0
-offset_bottom = 514.0
+offset_bottom = 567.0
 scale = Vector2(2, 2)
+icon = ExtResource("5_bco1x")

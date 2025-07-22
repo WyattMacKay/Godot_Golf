@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Golf"
-run/main_scene="uid://bu1mnm3jym6pm"
+run/main_scene="uid://y7gq0m4dhl6m"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
