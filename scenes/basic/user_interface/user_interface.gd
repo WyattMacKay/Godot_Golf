@@ -8,7 +8,7 @@ extends CanvasLayer
 func _ready() -> void:
 	self.visible = true
 	label.par = par
-	Global.set_ui(self)	
+	Global.set_ui(self)
 	hide_menu()
 
 func show_menu() -> void:

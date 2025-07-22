@@ -3,16 +3,20 @@ extends Node
 var scene_paths: Array
 var curr_scene_index := -1
 var level_directory := "res://scenes/levels/student_levels/"
+var name_label: Label
 
 func _ready() -> void:
 	scene_paths = Array(ResourceLoader.list_directory(level_directory))
 	scene_paths.shuffle()
 
+func set_name_label(label: Label) -> void:
+	name_label = label
+	name_label.set_label(format_string(scene_paths[curr_scene_index])) #TEMP!!
+
 func load_scene_deferred() -> void:
 	curr_scene_index = (curr_scene_index) % scene_paths.size()
 	var scene := ResourceLoader.load(level_directory + scene_paths[curr_scene_index])
 	get_tree().change_scene_to_packed(scene)
-	print(format_string(scene_paths[curr_scene_index]))
 
 func load_next_scene() -> void:
 	curr_scene_index += 1
@@ -34,3 +38,5 @@ func _unhandled_input(_event: InputEvent) -> void:
 		load_next_scene()
 	elif Input.is_action_just_pressed("ui_left"):
 		load_prev_scene()
+	elif Input.is_action_just_pressed("ui_up"):
+		set_name_label(name_label)
