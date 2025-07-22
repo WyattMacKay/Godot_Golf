@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5ttg0ts17bq2"]
+[gd_scene load_steps=7 format=3 uid="uid://b5ttg0ts17bq2"]
 
 [ext_resource type="Script" uid="uid://b606k103lgxe2" path="res://scenes/basic/user_interface/user_interface.gd" id="1_7hh34"]
 [ext_resource type="Script" uid="uid://bif4vwbrm5wyk" path="res://scenes/basic/user_interface/label.gd" id="1_syvep"]
 [ext_resource type="PackedScene" uid="uid://bwpxvpn0nrnp3" path="res://scenes/basic/user_interface/reset_button/reset.tscn" id="3_kgvde"]
 [ext_resource type="PackedScene" uid="uid://colkepw4xt1da" path="res://scenes/basic/user_interface/menu/menu.tscn" id="5_dbcci"]
 [ext_resource type="Script" uid="uid://bey5rkq8ey4i3" path="res://scenes/basic/user_interface/student_name.gd" id="5_k77lj"]
+[ext_resource type="PackedScene" uid="uid://dt111fdt6u1e7" path="res://scenes/basic/user_interface/level_change_button/level_change_button.tscn" id="6_k77lj"]
 
 [node name="UserInterface" type="CanvasLayer" node_paths=PackedStringArray("label", "menu")]
 script = ExtResource("1_7hh34")
@@ -56,12 +57,31 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="StudentName" type="Label" parent="UI"]
-offset_left = 11.0
-offset_top = 881.0
-offset_right = 308.0
-offset_bottom = 970.0
+layout_mode = 0
+offset_left = 16.0
+offset_top = 757.0
+offset_right = 313.0
+offset_bottom = 846.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 50
+text = "Firstname L"
+horizontal_alignment = 1
 script = ExtResource("5_k77lj")
+
+[node name="Right" parent="UI" instance=ExtResource("6_k77lj")]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 846.0
+offset_right = 330.0
+offset_bottom = 974.0
+direction = 1
+
+[node name="Left" parent="UI" instance=ExtResource("6_k77lj")]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 846.0
+offset_right = 257.0
+offset_bottom = 974.0
+scale = Vector2(-1, 1)

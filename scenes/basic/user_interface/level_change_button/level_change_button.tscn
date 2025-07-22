@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt111fdt6u1e7"]
+
+[ext_resource type="Texture2D" uid="uid://dyhp6wn6tlkjk" path="res://scenes/basic/user_interface/level_change_button/arrow.png" id="1_1sggu"]
+[ext_resource type="Script" uid="uid://bgn41hrcnv8to" path="res://scenes/basic/user_interface/level_change_button/level_change_button.gd" id="2_g7nmb"]
+
+[node name="Right" type="Button"]
+offset_right = 128.0
+offset_bottom = 128.0
+icon = ExtResource("1_1sggu")
+flat = true
+expand_icon = true
+script = ExtResource("2_g7nmb")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
