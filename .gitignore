@@ -1,3 +1,4 @@
+scenes/levels/student_levels/*.tscn
 # Godot 4+ specific ignores
 .godot/
 /android/

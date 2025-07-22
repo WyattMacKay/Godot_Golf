@@ -41,7 +41,7 @@ func win() -> void:
 		1: golf_term = "BOGEY"
 		2: golf_term = "DOUBLE BOGEY"
 		3: golf_term = "TRIPLE BOGEY"
-		_: golf_term = str(score - par) + " strokes"
+		_: golf_term = str(score) + " strokes"
 	golf_term += "\nPAR: %d\nYOUR SCORE:%d" % [par, score-par]
 	menu_label.text = golf_term
 	ui.show_menu()
