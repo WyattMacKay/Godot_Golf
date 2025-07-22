@@ -22,7 +22,3 @@ func hide_menu() -> void:
 
 func get_menu_label() -> Label:
 	return menu.label
-
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_down"):
-		Global.win()

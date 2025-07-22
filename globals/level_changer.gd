@@ -31,12 +31,4 @@ func format_string(input: String) -> String:
 	var words = input.split("_")  
 	for i in words.size():
 		words[i] = words[i].capitalize()  
-	return " ".join(words)  
-
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_right"):
-		load_next_scene()
-	elif Input.is_action_just_pressed("ui_left"):
-		load_prev_scene()
-	elif Input.is_action_just_pressed("ui_up"):
-		set_name_label(name_label)
+	return " ".join(words)
